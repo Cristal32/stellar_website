@@ -1,0 +1,4 @@
+/* Change text color on button hover */
+.stButton button:hover {
+    color: rgb(26, 163, 255) !important; /* Change to your desired text color */
+}

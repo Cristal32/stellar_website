@@ -1,9 +1,15 @@
 import streamlit as st
-import os
 import base64
 
 # Set page title and icon
 st.set_page_config(page_title="Stellar discover")
+
+# Import custom CSS file
+with open("custom_styles.css", "r") as f:
+    custom_css = f.read()
+
+# Inject custom CSS into Streamlit app
+st.markdown(f"<style>{custom_css}</style>", unsafe_allow_html=True)
 
 # Custom CSS to apply background image
 def get_base64(bin_file):
@@ -30,19 +36,17 @@ set_background('./assets/starry_night.jpg')
 st.title("Welcome to the world of astrophysics")
 
 # Input fields
-name = st.text_input("Enter field1:")
-age = st.number_input("Enter field2:", min_value=0, max_value=150, value=30, step=1)
+field1 = st.text_input("Enter field1:")
+field2 = st.number_input("Enter field2:", min_value=0, max_value=150, value=30, step=1)
+field3 = st.number_input("Enter field3:", min_value=0, max_value=150, value=30, step=1)
 
 # Center the "Generate Message" button
 col1, col2, col3 = st.columns([1, 2, 1])
 
 # Button to generate message
 with col2:
-    if st.button("Generate Message"):
-        if name and age:
-            if age < 18:
-                st.error(f"Hi {name}, you are under 18 years old. You are not allowed to access this content.")
-            else:
-                st.success(f"Hi {name}, you are {age} years old. Welcome to our app!")
+    if st.button("Guess the star"):
+        if field1 and field2 and field3:
+            st.success(f"Hi, you submitted {field1}, {field2} and {field3} successfully!")
         else:
             st.warning("Please fill in all the fields.")
