@@ -1,4 +1,4 @@
-# optimization-app
+# Stellar website
 
 A white label repository for a streamlit numerical optimization web application.
 
@@ -38,3 +38,4 @@ Then you can run your app by running
 ## Contact
 
 You can reach out to me at bruscalia12@gmail.com
+
